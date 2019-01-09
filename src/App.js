@@ -4,6 +4,7 @@ import {
   Dialog,
   DialogActions,
   DialogTitle,
+  Grid,
   Slide,
   TextField
 } from "@material-ui/core/";
@@ -56,19 +57,27 @@ class App extends Component {
 
     return (
       <div className="App">
-        <TextField
-          label="Instagram Beauty Caption"
-          placeholder="Type Your Caption"
-          multiline
-          fullWidth
-          margin="normal"
-          variant="outlined"
-          value={this.state.text}
-          onChange={this.handleChange}
-        />
-        <Button variant="contained" color="primary" onClick={this.handleClick}>
-          Create
-        </Button>
+        <Grid container justify="center">
+          <Grid item md={6} xs={12}>
+            <TextField
+              label="Instagram Beauty Caption"
+              placeholder="Type Your Caption"
+              multiline
+              fullWidth
+              margin="normal"
+              variant="outlined"
+              value={this.state.text}
+              onChange={this.handleChange}
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleClick}
+            >
+              Create
+            </Button>
+          </Grid>
+        </Grid>
 
         <Dialog
           open={this.state.open}
