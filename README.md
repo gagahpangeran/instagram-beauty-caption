@@ -10,11 +10,15 @@ submitted. Is that your problem?
 With this tool, you can make your beauty caption without worrying about the
 result becomes messy again.
 
+## Live Demo
+
+[Instagram Beauty Caption](http://ibc.gagahpangeran.com)
+
 ## How to use
 
 ### Easy Way
 
-- Visit this website [Todo]
+- Visit this website [here](http://ibc.gagahpangeran.com)
 - Type or copy and paste your caption into textbox
 - Click `Create` button and your caption will copied to clipboard
 
