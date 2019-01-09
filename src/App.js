@@ -80,6 +80,15 @@ class App extends Component {
               >
                 Create
               </Button>
+
+              <a
+                href="https://github.com/gagahpangeran/instagram-beauty-caption#add-to-pwa"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "block", padding: "16px" }}
+              >
+                Add this app to your home screen
+              </a>
             </Grid>
           </Grid>
 
