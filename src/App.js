@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, TextField } from "@material-ui/core/";
+import copy from "copy-to-clipboard";
 import "./App.css";
 
 class App extends Component {
@@ -15,12 +16,17 @@ class App extends Component {
 
   handleClick = () => {
     const newText = this.state.text.split("\n");
-    this.setState({
-      text: newText.join("\u2063\n")
-    });
+    this.setState(
+      {
+        text: newText.join("\u2063\n")
+      },
+      () => copy(this.state.text)
+    );
   };
 
   render() {
+    console.log(this.state.text);
+
     return (
       <div className="App">
         <TextField
