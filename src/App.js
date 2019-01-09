@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import {
   Button,
-  Dialog,
-  DialogActions,
-  DialogTitle,
   Grid,
   Slide,
+  Snackbar,
   TextField,
   Typography
 } from "@material-ui/core/";
@@ -105,23 +103,17 @@ class App extends Component {
             </Typography>
           </footer>
 
-          <Dialog
+          <Snackbar
+            className="toast"
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             open={this.state.open}
-            TransitionComponent={Transition}
-            keepMounted
             onClose={this.handleClose}
-            aria-labelledby="alert-dialog-slide-title"
-            aria-describedby="alert-dialog-slide-description"
-          >
-            <DialogTitle id="alert-dialog-slide-title">
-              Caption Copied!
-            </DialogTitle>
-            <DialogActions>
-              <Button onClick={this.handleClose} color="primary">
-                Close
-              </Button>
-            </DialogActions>
-          </Dialog>
+            autoHideDuration={1500}
+            ContentProps={{
+              "aria-describedby": "message-id"
+            }}
+            message={<span id="message-id">Caption Copied!</span>}
+          />
         </MuiThemeProvider>
       </div>
     );

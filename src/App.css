@@ -13,6 +13,11 @@ a {
   overflow-x: hidden;
 }
 
+.toast div[aria-describedby="message-id"] {
+  background: #17bebb;
+  color: black;
+}
+
 footer {
   padding: 16px;
 }
