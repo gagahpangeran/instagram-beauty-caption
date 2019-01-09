@@ -6,8 +6,10 @@ import {
   DialogTitle,
   Grid,
   Slide,
-  TextField
+  TextField,
+  Typography
 } from "@material-ui/core/";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import copy from "copy-to-clipboard";
 import "./App.css";
 
@@ -48,54 +50,79 @@ class App extends Component {
     this.setState({ open: false });
   };
 
-  transition = () => {
-    return <Slide direction="up" />;
-  };
+  theme = createMuiTheme({
+    palette: {
+      primary: { main: "#17bebb" },
+      secondary: { main: "#cd5334" }
+    },
+    typography: { useNextVariants: true }
+  });
 
   render() {
     console.log(this.state.text);
 
     return (
       <div className="App">
-        <Grid container justify="center">
-          <Grid item md={6} xs={12}>
-            <TextField
-              label="Instagram Beauty Caption"
-              placeholder="Type Your Caption"
-              multiline
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              value={this.state.text}
-              onChange={this.handleChange}
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={this.handleClick}
-            >
-              Create
-            </Button>
-          </Grid>
-        </Grid>
+        <MuiThemeProvider theme={this.theme}>
+          <header>
+            <Typography variant="h3">Instagram Beauty Caption</Typography>
+          </header>
 
-        <Dialog
-          open={this.state.open}
-          TransitionComponent={Transition}
-          keepMounted
-          onClose={this.handleClose}
-          aria-labelledby="alert-dialog-slide-title"
-          aria-describedby="alert-dialog-slide-description"
-        >
-          <DialogTitle id="alert-dialog-slide-title">
-            Caption Copied!
-          </DialogTitle>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
+          <Grid container justify="center" className="main">
+            <Grid item md={6} xs={12}>
+              <TextField
+                label="Instagram Beauty Caption"
+                placeholder="Type Your Caption"
+                multiline
+                fullWidth
+                margin="normal"
+                variant="outlined"
+                value={this.state.text}
+                onChange={this.handleChange}
+              />
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={this.handleClick}
+              >
+                Create
+              </Button>
+            </Grid>
+          </Grid>
+
+          <footer>
+            <Typography variant="h6">
+              There is a bug or you want to contribute? Create issues or submit
+              your pull request{" "}
+              <a
+                href="https://github.com/gagahpangeran/instagram-beauty-caption"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                here
+              </a>
+              .
+            </Typography>
+          </footer>
+
+          <Dialog
+            open={this.state.open}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={this.handleClose}
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle id="alert-dialog-slide-title">
+              Caption Copied!
+            </DialogTitle>
+            <DialogActions>
+              <Button onClick={this.handleClose} color="primary">
+                Close
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </MuiThemeProvider>
       </div>
     );
   }
