@@ -11,10 +11,6 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import copy from "copy-to-clipboard";
 import "./App.css";
 
-function Transition(props) {
-  return <Slide direction="up" {...props} />;
-}
-
 class App extends Component {
   state = {
     text: "",
