@@ -1,25 +1,41 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Button, TextField } from "@material-ui/core/";
+import "./App.css";
 
 class App extends Component {
+  state = {
+    text: ""
+  };
+
+  handleChange = e => {
+    this.setState({
+      text: e.target.value
+    });
+  };
+
+  handleClick = () => {
+    const newText = this.state.text.split("\n");
+    this.setState({
+      text: newText.join("\u2063\n")
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <TextField
+          label="Instagram Beauty Caption"
+          placeholder="Type Your Caption"
+          multiline
+          fullWidth
+          margin="normal"
+          variant="outlined"
+          value={this.state.text}
+          onChange={this.handleChange}
+        />
+        <Button variant="contained" color="primary" onClick={this.handleClick}>
+          Create
+        </Button>
       </div>
     );
   }
