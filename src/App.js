@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {
   Button,
   Grid,
-  Slide,
   Snackbar,
   TextField,
   Typography
